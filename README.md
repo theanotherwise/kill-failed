@@ -10,7 +10,7 @@ SERVICE_NAME="example"
 PROC_NAME="java"
 KEYWORD="example.properties"
 
-/usr/bin/systemctl stop "$SERVICE_NAME" || /usr/sbin/service "$SERVICE_NAME" stop
+systemctl stop "$SERVICE_NAME" || service "$SERVICE_NAME" stop
 
 FOUND_PROC=`ps aux | grep "$PROC_NAME" | grep "$KEYWORD"`
 
