@@ -2,15 +2,12 @@
 
 ### When ur service (like java) sometimes stuck or failed when stop..
 
-* SERVICE_NAME, PROC_NAME, KEYWORD, - case sensitive
-
-
 ```bash
 #!/bin/bash
-SERVICE_NAME="example"
+SERVICE_NAME="example" # case sensitive
 
-PROC_NAME="java"
-KEYWORD="example.properties"
+PROC_NAME="java" # case sensitive
+KEYWORD="example.properties" # case sensitive
 
 systemctl stop "$SERVICE_NAME" || service "$SERVICE_NAME" stop
 
