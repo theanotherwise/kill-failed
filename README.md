@@ -12,6 +12,10 @@ KEYWORD="example.properties"
 
 systemctl stop "$SERVICE_NAME" || service "$SERVICE_NAME" stop
 
+if [[ "$?" != "0" ]] ; then # Sometimes this can be 0 and process is not stop
+  echo "Failed stop service.."
+fi
+
 FOUND_PROC=`ps aux | grep "$PROC_NAME" | grep "$KEYWORD"`
 
 PROC_KEYWORD=`echo -e "$FOUND_PROC" | grep -o "$KEYWORD" | head -1`
