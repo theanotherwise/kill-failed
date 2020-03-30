@@ -4,9 +4,9 @@
 
 ```bash
 #!/bin/bash
-SERVICE_NAME="example"
-PROC_NAME="java"
-KEYWORD="example.properties"
+SERVICE_NAME="example" # case sensitive
+PROC_NAME="java"  # case sensitive
+KEYWORD="example.properties" # case sensitive
 
 /bin/systemctl stop "$SERVICE_NAME" || /usr/sbin/service "$SERVICE_NAME" stop
 
@@ -14,7 +14,7 @@ RES="$?"
 
 FOUND_PROC=`ps aux | grep -E "$PROC_NAME" | grep -E "$KEYWORD"`
 
-PROC_KEYWORD=`echo -e "$FOUND_PROC" | grep -Eio "$KEYWORD" | head -1`
+PROC_KEYWORD=`echo -e "$FOUND_PROC" | grep -Eo "$KEYWORD" | head -1`
 PROC_PID=`echo -e "$FOUND_PROC" | grep -E "$KEYWORD" | awk '{print $2}'`
 
 if [ "$PROC_KEYWORD" = "$KEYWORD" ] ; then
