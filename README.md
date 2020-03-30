@@ -11,9 +11,7 @@ KEYWORD="example.properties" # case sensitive
 
 systemctl stop "$SERVICE_NAME" || service "$SERVICE_NAME" stop
 
-# if [[ "$?" != "0" ]] ; then
-#   echo "Failed stop service.."
-# fi
+RES="$?"
 
 FOUND_PROC=`ps aux | grep -E "$PROC_NAME" | grep -E "$KEYWORD"`
 
@@ -22,5 +20,9 @@ PROC_PID=`echo -e "$FOUND_PROC" | grep -E "$KEYWORD" | awk '{print $2}'`
 
 if [ "$PROC_KEYWORD" = "$KEYWORD" ] ; then
   kill -9 "$PROC_PID"
+  
+  if [[ "$RES" != "0" ]] ; then
+    echo "Failed stop service, process killed.."
+  fi
 fi
 ```
