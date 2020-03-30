@@ -9,7 +9,7 @@ SERVICE_NAME="example" # case sensitive
 PROC_NAME="java" # case sensitive
 KEYWORD="example.properties" # case sensitive
 
-systemctl stop "$SERVICE_NAME" || service "$SERVICE_NAME" stop
+/bin/systemctl stop "$SERVICE_NAME" || /usr/sbin/service "$SERVICE_NAME" stop
 
 RES="$?"
 
