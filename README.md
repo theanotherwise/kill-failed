@@ -1,4 +1,4 @@
-# kill process of service if stop failed
+# kill if stop failed
 
 ### When ur service (like java) sometimes stuck or failed when stop..
 
