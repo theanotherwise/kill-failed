@@ -14,6 +14,7 @@ KEYWORD="example.properties" # case sensitive, extended regex
 RES="$?"
 
 FOUND_PROC=`ps -fC "$PROC_NAME" | grep -E "$KEYWORD"`
+# FOUND_PROC=`ps aux | grep -E "$PROC_NAME" | grep -E "$KEYWORD"`
 
 PROC_KEYWORD=`echo -e "$FOUND_PROC" | grep -Eo "$KEYWORD" | head -1`
 PROC_PID=`echo -e "$FOUND_PROC" | grep -E "$KEYWORD" | awk '{print $2}'`
