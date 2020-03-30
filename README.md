@@ -22,7 +22,8 @@ if [ "$PROC_KEYWORD" = "$KEYWORD" ] ; then
   kill -9 "$PROC_PID"
   
   if [[ "$RES" != "0" ]] ; then
-    echo "Failed stop service, process killed.."
+    echo "Failed stop service, killed PIDs '$PROC_PID' processes.."
+    echo -e"Found to kill:\n$FOUND_PROC"
   fi
 fi
 ```
