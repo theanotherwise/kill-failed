@@ -4,10 +4,9 @@
 
 ```bash
 #!/bin/bash
-SERVICE_NAME="example" # case sensitive
-
-PROC_NAME="java" # case sensitive
-KEYWORD="example.properties" # case sensitive
+SERVICE_NAME="example"
+PROC_NAME="java"
+KEYWORD="example.properties"
 
 /bin/systemctl stop "$SERVICE_NAME" || /usr/sbin/service "$SERVICE_NAME" stop
 
@@ -22,8 +21,7 @@ if [ "$PROC_KEYWORD" = "$KEYWORD" ] ; then
   kill -9 "$PROC_PID"
   
   if [[ "$RES" != "0" ]] ; then
-    echo "Failed stop service, killed PIDs '$PROC_PID' processes.."
-    echo -e"Found to kill:\n$FOUND_PROC"
+    echo -e "Found to kill ('$PROC_PID'):\n$FOUND_PROC"
   fi
 fi
 ```
